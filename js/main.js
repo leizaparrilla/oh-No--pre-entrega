@@ -1,142 +1,147 @@
-/*INICIO-NOMBRE + APELLIDO + EDAD DEL USUARIO */
-let nombreUsuario = prompt("ingrese su Nombre para comenzar el Quizz y Obtener un 20% off en nuestros productos!");
+
+
+
+const TITULO = document.getElementById("tituloPrincipal");
+console.log(TITULO)
+
+let parrafo = document.createElement("p");
+parrafo.textContent = "Could I have more t-shirt? "
+document.body.appendChild(parrafo);
+
+let etiqueta = document.getElementsByTagName("li");
+console.log(etiqueta);
+
+//BOTON ENCUESTA
+
+const encuesta = document.getElementById("encuesta");
+
+encuesta.addEventListener('click',function(){
+    alert('se hizo click en phoebe')
+})
+
+
+
+
+/* INICIO - NOMBRE + APELLIDO + EDAD DEL USUARIO */
+let nombreUsuario = prompt("Ingresa tu nombre para comenzar el Quizz y obtener un 20% off en nuestros productos!");
 console.log(nombreUsuario);
-let edadUsuario = prompt("Hola" + " " + nombreUsuario + "!" + " " + "¿cuantos años tenes" + "?");
+
+let edadUsuario = parseInt(prompt(`Hola ${nombreUsuario}! ¿Cuántos años tenes?`));
+
 if (edadUsuario >= 15) {
-    alert("Bienvenid@" + " " + nombreUsuario + "!" + " " + "Vamos a ver cuanto sabes de Friends!");
+    alert(`¡Bienvenid@ ${nombreUsuario}! ¡Vamos a ver cuánto sabes de Friends!`);
 } else {
-    alert("Aun no tienes edad suficiente para ingresar a la pagina")
+    alert("Aún no tienes edad suficiente para ingresar a la página.");
 }
 
 
 
-/*PREGUNTAS QUIZZ */
-let continuarQuizz = "no";
-do {
+/* PREGUNTAS QUIZZ */
+function hacerPregunta(pregunta, respuestaCorrecta) {
     let intentarOtraVez = "si";
-    while (intentarOtraVez === "si"){
-        const pregunta1 = prompt("¿Que animales tienen Joey y Chandler como mascotas? responde con a: Pato y Pollito o b: Mono y Gato");
-
-        switch(pregunta1.toLowerCase()){
-        case "a":
-                console.log(" Muy bien! la siguiente pregunta es sobre Phoebe!");
-                alert("Muy bien! la siguiente pregunta es sobre Phoebe!");    
-                intentarOtraVez = "no";
-        break;
-     case "b":
-                console.log("oh no! ¿Queres intentar otra vez si/no?");
-                intentarOtraVez = prompt("oh no! ¿Queres intentar otra vez? " + nombreUsuario + " " + "si/no").toLowerCase();
-                break;
-             default:
-                console.log(" Ninguna de las opciones anteriores es valida");
-                break;}
-    }
-    continuarQuizz = prompt("Estas listo para la siguiente pregunta?" +" " + nombreUsuario + " " + "si/no").toLowerCase();
-} while (continuarQuizz === "no");
-  
-
-
-let continuarQuizz1 = "no";
-do {
-    let intentarOtraVez = "si";
-    while (intentarOtraVez === "si"){
-        const pregunta1 = prompt("¿Que dice Phoebe cuando descubre que Chandler y Monica son pareja? a: oh no! b: OH MY EYES! MY EYES!");
-
-        switch(pregunta1.toLowerCase()){
-        case "a":
-            console.log("oh no! lo volvemos a intentar?");
-            intentarOtraVez = prompt("oh no! lo volvemos a intentar??" +" " + nombreUsuario + " " + "si/no").toLowerCase();
-            break;
-        break;
-     case "b":
-        console.log("Muy bien!!! vamos con la ultima pregunta?");
-                alert("Muy bien!!! vamos con la ultima pregunta? ");    
-                intentarOtraVez = "no";
-               
-             default:
-                console.log(" Ninguna de las opciones anteriores es valida");
-                break;}
-    }
-    continuarQuizz1 = prompt("Estas listo para la ultima pregunta?" + nombreUsuario + " " + "si/no").toLowerCase();
-} while (continuarQuizz1 === "no");
-
-
-let continuarQuizz2 = "no";
-do {
-    let intentarOtraVez = "si";
-    while (intentarOtraVez === "si"){
-        const pregunta1 = prompt("¿Que festividad odia Chandler? a: Dia de Accion de Gracias o  b: San Valentin");
-
-        switch(pregunta1.toLowerCase()){
-        case "a":
-                console.log(" Felicitaciones! ya tenes un 20% off en nuestros productos!");
-                alert("Felicitaciones! ya tenes un 20% off en nuestros productos!");    
-                intentarOtraVez = "no";
-        break;
-     case "b":
-                console.log("oh no! ¿Queres intentar otra vez si/no?");
-                intentarOtraVez = prompt("oh no! ¿Queres intentar otra vez? " + nombreUsuario + " " + "si/no").toLowerCase();
-                break;
-             default:
-                console.log(" Ninguna de las opciones anteriores es valida");
-                break;}
-    }
     
-} while (continuarQuizz === "no");
-
-
-/*FUNCION CON DESCUENTO */
-let remeras = "remeras";
-do {
-    let intentarOtraVez = "si";
     while (intentarOtraVez === "si") {
-        const pregunta1 = prompt("Podes elegir entre 1: Remera PIVOT; 2: REGINA FALANGE o 3: How u doin?");
+        const respuesta = prompt(pregunta);
+        
+        if (respuesta.toLowerCase() === respuestaCorrecta.toLowerCase()) {
+            console.log("¡Muy bien! La siguiente pregunta es...");
+            alert("¡Muy bien! La siguiente pregunta es...");
+            intentarOtraVez = "no";
+        } else {
+            console.log("¡Oh no! ¿Quieres intentar otra vez si/no?");
+            intentarOtraVez = prompt(`¡Oh no, ${nombreUsuario}! ¿Quieres intentar otra vez? si/no`).toLowerCase();
+        }
+    }
+}
 
-        switch (pregunta1.toLowerCase()) {
+hacerPregunta("¿Qué animales tienen Joey y Chandler como mascotas? Responde con a: Pato y Pollito o b: Mono y Gato", "a");
+hacerPregunta("¿Qué dice Phoebe cuando descubre que Chandler y Monica son pareja? a: Oh no! b: OH MY EYES! MY EYES!", "b");
+hacerPregunta("¿Qué festividad odia Chandler? a: Día de Acción de Gracias o b: San Valentín", "a");
+
+
+/* FUNCION CON DESCUENTO */
+function realizarCompra() {
+    let intentarOtraVez = "si";
+
+    while (intentarOtraVez === "si") {
+        const opcion = prompt("Puedes elegir entre 1: Remera PIVOT; 2: REGINA FALANGE o 3: How u doin?");
+
+        switch (opcion) {
             case "1":
-                console.log(" Hi! Excelente eleccion! la remera PIVOT tiene un costo de $6000");
-                let valor = this.calculadoraConDescuento(6000, 20);
-                alert("Hi! Excelente eleccion! la remera PIVOT tiene un costo de $6000 con el descuento del 20% seria  $" + valor)
-                alert ("Gracias por visitar Oh no! Could I Have more T-shirts?! ")
+                procesarCompra1("Remera PIVOT", 18000);
                 intentarOtraVez = "no";
                 break;
             case "2":
-                console.log(" Elegiste la opcion Regina Falange! Especial para falcificar tu identidad! Esta remera tiene un costo de $7000");
-                let valor1 = this.calculadoraConDescuento(7000, 20);
-                alert("Elegiste la opcion Regina Falange! Especial para falcificar tu identidad! Esta remera tiene un costo de $7000 con el 20% off seria  $" + valor1);
-                alert ("Gracias por visitar Oh no! Could I Have more T-shirts?! ")
+                procesarCompra2("REGINA FALANGE", 19500);
                 intentarOtraVez = "no";
                 break;
             case "3":
-                console.log(" How u doin? Especial para invitar a chicas a salir! esta remera tiene un costo de $6000");
-                let valor2 = this.calculadoraConDescuento(7000, 20);
-                alert("How u doin? Especial para invitar a chicas a salir! esta remera tiene un costo de $6000 pero con el 20% off serian $" + valor2);
-                alert ("Gracias por visitar Oh no! Could I Have more T-shirts?! ")
+                procesarCompra3("How u doin?", 18500);
                 intentarOtraVez = "no";
                 break;
             default:
-                console.log(" Ninguna de las opciones anteriores es valida");
+                console.log("Ninguna de las opciones anteriores es válida");
                 break;
         }
     }
+}
 
-} while (continuarQuizz === "no");
+function procesarCompra1(producto, precio) {
+    console.log(` Hi, Excelente elección! La ${producto} tiene un costo de $${precio}`);
+    let valor = calculadoraConDescuento(precio, 20);
+    alert(`Hi,Excelente elección! Ahora vas a poder cargar sillones por las escaleras y gritar PIVOT! La  ${producto} tiene un costo de $${precio}, con el descuento del 20% sería $${valor}`);
+    
+}
+function procesarCompra2(producto, precio) {
+    console.log(` Hi, Excelente elección! La ${producto} tiene un costo de $${precio}`);
+    let valor = calculadoraConDescuento(precio, 20);
+    alert(`Elegiste la opcion Regina Falange! Especial para falcificar tu identidad! La remera ${producto} tiene un costo de $${precio}, con el descuento del 20% sería $${valor}`);
+    
+}
+function procesarCompra3(producto, precio) {
+    console.log(` Hi, Excelente elección! La ${producto} tiene un costo de $${precio}`);
+    let valor = calculadoraConDescuento(precio, 20);
+    alert(`How u doin? Especial para invitar a chicas a salir! La remera ${producto} tiene un costo de $${precio}, con el descuento del 20% sería $${valor}`);
+    
+}
 
 function calculadoraConDescuento(total, descuento) {
     let desc = (total * descuento) / 100;
     let totalConDes = total - desc;
-
     return totalConDes;
-
 }
 
-alert ("Gracias por visitar Oh no! Could I Have more T-shirts?! ")
+realizarCompra();
+alert("¡Gracias por visitar Oh no! Could I Have more T-shirts?!");
 
 
 
 
+//CARDS
 
+class Producto{
+    constructor(nombre, precio, img){
+        this.remera = nombre;
+        this.precio = precio;
+        this.img= img;
+    }
+}
 
+const WEWERE = new Producto("we were on a break","16000"," https://i.pinimg.com/564x/76/3b/d3/763bd3a934ad4832f1a8aa7690a48f22.jpg");
+const PIVOT = new Producto("PIVOT!","16000", "https://i.pinimg.com/564x/e3/2a/da/e32ada74bb865fd0401bd69d20cb721d.jpg ");
+const IMFINE = new Producto("I´m fine!","16000", " https://i.pinimg.com/564x/ad/0b/cf/ad0bcf64de8eb74b50f1fc57a5c94705.jpg");
 
+const ArrayProducto = [WEWERE, PIVOT, IMFINE];
 
-
+ArrayProducto.forEach(producto =>{
+    let div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+                    <img src = " ${producto.img}">
+                    <p>nombre: ${producto.remera}</p>
+                    <p>precio: ${producto.precio}</p>
+                    
+                    <button> Agregar al Carrito</button>
+    `
+    contenedorProducto.appendChild(div);
+})
