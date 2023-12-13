@@ -2,10 +2,10 @@ body {
     background-color: rgb(207, 23, 207);
 }
 
+
 .contenedorProducto{
     display: flex;
-    flex-direction: row;
-    gap: 30px;
+    gap: 20px;
     margin-left: 100px;
     margin-right: 100px;
     margin-top: 20px;
@@ -31,4 +31,31 @@ img {
     box-shadow: 5px 5px 5px 5px rgb(255, 255, 105);
     border-radius: 5px;
 
+}
+
+#carrito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 18.75rem;
+    border: 1px solid #ccc;
+    padding: .625rem;
+    border-radius: 5px;
+}
+
+#carrito button{
+    background-color: #4caf50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+}
+
+
+.producto{
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
 }

@@ -13,36 +13,27 @@ console.log(etiqueta);
 
 //BOTON ENCUESTA
 
-const encuesta = document.getElementById("encuesta");
+const hacerquizz = document.getElementById("hacerQuizz");
 
-encuesta.addEventListener('click',function(){
-    alert('se hizo click en phoebe')
+hacerquizz.addEventListener("click", () => {
+    hacerPregunta("¿Qué animales tienen Joey y Chandler como mascotas? Responde con a: Pato y Pollito o b: Mono y Gato", "a")
+    hacerPregunta("¿Qué dice Phoebe cuando descubre que Chandler y Monica son pareja? a: Oh no! b: OH MY EYES! MY EYES!", "b");
+    hacerPregunta("¿Qué festividad odia Chandler? a: Día de Acción de Gracias o b: San Valentín", "a");
+    this.realizarCompra();
+    alert("¡Gracias por visitar Oh no! Could I Have more T-shirts?!");
+
 })
 
 
 
 
-/* INICIO - NOMBRE + APELLIDO + EDAD DEL USUARIO */
-let nombreUsuario = prompt("Ingresa tu nombre para comenzar el Quizz y obtener un 20% off en nuestros productos!");
-console.log(nombreUsuario);
-
-let edadUsuario = parseInt(prompt(`Hola ${nombreUsuario}! ¿Cuántos años tenes?`));
-
-if (edadUsuario >= 15) {
-    alert(`¡Bienvenid@ ${nombreUsuario}! ¡Vamos a ver cuánto sabes de Friends!`);
-} else {
-    alert("Aún no tienes edad suficiente para ingresar a la página.");
-}
-
-
-
-/* PREGUNTAS QUIZZ */
+//PREGUNTAS QUIZZ 
 function hacerPregunta(pregunta, respuestaCorrecta) {
     let intentarOtraVez = "si";
-    
+
     while (intentarOtraVez === "si") {
         const respuesta = prompt(pregunta);
-        
+
         if (respuesta.toLowerCase() === respuestaCorrecta.toLowerCase()) {
             console.log("¡Muy bien! La siguiente pregunta es...");
             alert("¡Muy bien! La siguiente pregunta es...");
@@ -54,12 +45,7 @@ function hacerPregunta(pregunta, respuestaCorrecta) {
     }
 }
 
-hacerPregunta("¿Qué animales tienen Joey y Chandler como mascotas? Responde con a: Pato y Pollito o b: Mono y Gato", "a");
-hacerPregunta("¿Qué dice Phoebe cuando descubre que Chandler y Monica son pareja? a: Oh no! b: OH MY EYES! MY EYES!", "b");
-hacerPregunta("¿Qué festividad odia Chandler? a: Día de Acción de Gracias o b: San Valentín", "a");
-
-
-/* FUNCION CON DESCUENTO */
+//FUNCION CON DESCUENTO 
 function realizarCompra() {
     let intentarOtraVez = "si";
 
@@ -90,19 +76,19 @@ function procesarCompra1(producto, precio) {
     console.log(` Hi, Excelente elección! La ${producto} tiene un costo de $${precio}`);
     let valor = calculadoraConDescuento(precio, 20);
     alert(`Hi,Excelente elección! Ahora vas a poder cargar sillones por las escaleras y gritar PIVOT! La  ${producto} tiene un costo de $${precio}, con el descuento del 20% sería $${valor}`);
-    
+
 }
 function procesarCompra2(producto, precio) {
     console.log(` Hi, Excelente elección! La ${producto} tiene un costo de $${precio}`);
     let valor = calculadoraConDescuento(precio, 20);
     alert(`Elegiste la opcion Regina Falange! Especial para falcificar tu identidad! La remera ${producto} tiene un costo de $${precio}, con el descuento del 20% sería $${valor}`);
-    
+
 }
 function procesarCompra3(producto, precio) {
     console.log(` Hi, Excelente elección! La ${producto} tiene un costo de $${precio}`);
     let valor = calculadoraConDescuento(precio, 20);
     alert(`How u doin? Especial para invitar a chicas a salir! La remera ${producto} tiene un costo de $${precio}, con el descuento del 20% sería $${valor}`);
-    
+
 }
 
 function calculadoraConDescuento(total, descuento) {
@@ -113,7 +99,6 @@ function calculadoraConDescuento(total, descuento) {
 
 realizarCompra();
 alert("¡Gracias por visitar Oh no! Could I Have more T-shirts?!");
-
 
 
 
