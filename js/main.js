@@ -11,6 +11,18 @@ document.body.appendChild(parrafo);
 let etiqueta = document.getElementsByTagName("li");
 console.log(etiqueta);
 
+//INICIO - NOMBRE + APELLIDO + EDAD DEL USUARIO 
+let nombreUsuario = prompt("Ingresa tu nombre para comenzar el Quizz y obtener un 20% off en nuestros productos!");
+console.log(nombreUsuario);
+
+let edadUsuario = parseInt(prompt(`Hola ${nombreUsuario}! ¿Cuántos años tenes?`));
+
+if (edadUsuario >= 15) {
+    alert(`¡Bienvenid@ ${nombreUsuario}! ¡Vamos a ver cuánto sabes de Friends!`);
+} else {
+    alert("Aún no tienes edad suficiente para ingresar a la página.");
+}
+
 //BOTON ENCUESTA
 
 const hacerquizz = document.getElementById("hacerQuizz");
@@ -20,6 +32,7 @@ hacerquizz.addEventListener("click", () => {
     hacerPregunta("¿Qué dice Phoebe cuando descubre que Chandler y Monica son pareja? a: Oh no! b: OH MY EYES! MY EYES!", "b");
     hacerPregunta("¿Qué festividad odia Chandler? a: Día de Acción de Gracias o b: San Valentín", "a");
     this.realizarCompra();
+    
     alert("¡Gracias por visitar Oh no! Could I Have more T-shirts?!");
 
 })
