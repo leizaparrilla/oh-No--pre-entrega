@@ -1,6 +1,3 @@
-
-
-
 const TITULO = document.getElementById("tituloPrincipal");
 console.log(TITULO)
 
@@ -25,17 +22,21 @@ if (edadUsuario >= 15) {
 
 //BOTON ENCUESTA
 
-const hacerquizz = document.getElementById("hacerQuizz");
 
-hacerquizz.addEventListener("click", () => {
-    hacerPregunta("¿Qué animales tienen Joey y Chandler como mascotas? Responde con a: Pato y Pollito o b: Mono y Gato", "a")
-    hacerPregunta("¿Qué dice Phoebe cuando descubre que Chandler y Monica son pareja? a: Oh no! b: OH MY EYES! MY EYES!", "b");
-    hacerPregunta("¿Qué festividad odia Chandler? a: Día de Acción de Gracias o b: San Valentín", "a");
-    this.realizarCompra();
+
+function hacerEncuesta(){
+    const hacerquizz = document.getElementById("hacerQuizz");
+    hacerquizz.addEventListener("click", () => {
+        hacerPregunta("¿Qué animales tienen Joey y Chandler como mascotas? Responde con a: Pato y Pollito o b: Mono y Gato", "a")
+        hacerPregunta("¿Qué dice Phoebe cuando descubre que Chandler y Monica son pareja? a: Oh no! b: OH MY EYES! MY EYES!", "b");
+        hacerPregunta("¿Qué festividad odia Chandler? a: Día de Acción de Gracias o b: San Valentín", "a");
+        this.realizarCompra();
+        
+        alert("¡Gracias por visitar Oh no! Could I Have more T-shirts?!");
     
-    alert("¡Gracias por visitar Oh no! Could I Have more T-shirts?!");
+    })
+}
 
-})
 
 
 
@@ -110,36 +111,3 @@ function calculadoraConDescuento(total, descuento) {
     return totalConDes;
 }
 
-realizarCompra();
-alert("¡Gracias por visitar Oh no! Could I Have more T-shirts?!");
-
-
-
-//CARDS
-
-class Producto{
-    constructor(nombre, precio, img){
-        this.remera = nombre;
-        this.precio = precio;
-        this.img= img;
-    }
-}
-
-const WEWERE = new Producto("we were on a break","16000"," https://i.pinimg.com/564x/76/3b/d3/763bd3a934ad4832f1a8aa7690a48f22.jpg");
-const PIVOT = new Producto("PIVOT!","16000", "https://i.pinimg.com/564x/e3/2a/da/e32ada74bb865fd0401bd69d20cb721d.jpg ");
-const IMFINE = new Producto("I´m fine!","16000", " https://i.pinimg.com/564x/ad/0b/cf/ad0bcf64de8eb74b50f1fc57a5c94705.jpg");
-
-const ArrayProducto = [WEWERE, PIVOT, IMFINE];
-
-ArrayProducto.forEach(producto =>{
-    let div = document.createElement("div");
-    div.className = "card";
-    div.innerHTML = `
-                    <img src = " ${producto.img}">
-                    <p>nombre: ${producto.remera}</p>
-                    <p>precio: ${producto.precio}</p>
-                    
-                    <button> Agregar al Carrito</button>
-    `
-    contenedorProducto.appendChild(div);
-})

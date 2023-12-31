@@ -12,10 +12,11 @@ class Producto{
         this.remera = nombre;
         this.precio = precio;
         this.img= img;
+        this.cantidad = 1;
         
     }
 }
-2
+
 const WEWERE = new Producto ("1","we were on a break","16000"," https://i.pinimg.com/564x/76/3b/d3/763bd3a934ad4832f1a8aa7690a48f22.jpg");
 const PIVOT = new Producto("2", "PIVOT!","16000", "https://i.pinimg.com/564x/e3/2a/da/e32ada74bb865fd0401bd69d20cb721d.jpg ");
 const IMFINE = new Producto("3","I´m fine!","16000", " https://i.pinimg.com/564x/ad/0b/cf/ad0bcf64de8eb74b50f1fc57a5c94705.jpg");
@@ -38,6 +39,7 @@ ArrayProducto.forEach(producto =>{
     contenedorProducto.appendChild(div);
 })
 
+
 //AGREGAR AL CARRITO
 function agregarAlCarrito(nombre,precio){
     
@@ -48,6 +50,8 @@ function agregarAlCarrito(nombre,precio){
     
 }
 ;
+
+
 
 //AGREGAR PRODUCTOS AL CARRITO
 function mostrarCarrito() {
